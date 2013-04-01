@@ -62,6 +62,9 @@ if ($stream = stream_socket_client("tcp://$ip:6419")) {
         $t = '';
         $s = '';
         break;
+      case '215': // End of EPG data
+      case '221': // server closing connection
+        break(2);
     }
   }
   fclose($stream);
